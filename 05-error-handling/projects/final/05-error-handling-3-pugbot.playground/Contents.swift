@@ -1,4 +1,4 @@
-/// Copyright (c) 2023 Kodeco LLC
+/// Copyright (c) 2025 Kodeco LLC
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
@@ -49,7 +49,7 @@ class PugBot {
     self.name = name
   }
     
-  func move(_ direction: Direction) throws {
+  func move(_ direction: Direction) throws(PugBotError) {
     guard currentStepInPath < correctPath.count else {
       throw PugBotError.endOfPath
     }
@@ -67,7 +67,8 @@ class PugBot {
 
 let pug = PugBot(name: "Pug", correctPath: [.forward, .left, .forward, .right])
 
-func goHome() throws {
+@MainActor
+func goHome() throws(PugBotError) {
   try pug.move(.forward)
   try pug.move(.left)
   try pug.move(.forward)

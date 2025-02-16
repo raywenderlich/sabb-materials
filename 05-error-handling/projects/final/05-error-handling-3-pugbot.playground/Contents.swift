@@ -49,7 +49,7 @@ class PugBot {
     self.name = name
   }
     
-  func move(_ direction: Direction) throws {
+  func move(_ direction: Direction) throws(PugBotError) {
     guard currentStepInPath < correctPath.count else {
       throw PugBotError.endOfPath
     }
@@ -68,7 +68,7 @@ class PugBot {
 let pug = PugBot(name: "Pug", correctPath: [.forward, .left, .forward, .right])
 
 @MainActor
-func goHome() throws {
+func goHome() throws(PugBotError) {
   try pug.move(.forward)
   try pug.move(.left)
   try pug.move(.forward)

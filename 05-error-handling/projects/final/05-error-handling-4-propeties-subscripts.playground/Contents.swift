@@ -46,7 +46,7 @@ enum PersonError: Error {
 
 extension Person {
   var description: String {
-    get throws {
+    get throws(PersonError) {
       guard !name.isEmpty else {throw PersonError.noName}
       guard age > 0 else {throw PersonError.noAge}
       return "\(name) is \(age) years old."
@@ -86,7 +86,7 @@ do {
 
 extension Person {
   subscript(key: String) -> String {
-    get throws {
+    get throws(PersonError) {
       switch key {
         case "name": return name
         case "age": return "\(age)"

@@ -38,6 +38,7 @@ class Tutorial {
   init(title: String, author: Author) {
     self.title = title
     self.author = author
+    print("Hello tutorial \(title)!")
   }
   
   deinit {
@@ -71,6 +72,7 @@ class Editor {
   
   init(name: String) {
     self.name = name
+    print("Hello editor \(name)!")
   }
   
   deinit {
@@ -84,6 +86,7 @@ class Author {
   
   init(name: String) {
     self.name = name
+    print("Hello author \(name)!")
   }
   
   deinit {

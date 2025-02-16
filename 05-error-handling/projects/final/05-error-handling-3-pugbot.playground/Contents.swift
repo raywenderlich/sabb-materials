@@ -67,6 +67,7 @@ class PugBot {
 
 let pug = PugBot(name: "Pug", correctPath: [.forward, .left, .forward, .right])
 
+@MainActor
 func goHome() throws {
   try pug.move(.forward)
   try pug.move(.left)
